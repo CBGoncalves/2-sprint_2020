@@ -12,6 +12,19 @@ namespace senai.filmes.webapi.Repositories
     {
         private string StringConexao = "Data Source=DEV5\\SQLEXPRESS; initial catalog=Filmes; user Id=sa; pwd=sa@132";
 
+        public void Cadastrar(GeneroDomain generoDomain)
+        {
+            string query = "INSERT INTO Generos (Nome) VALUES (@Nome)";
+
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Nome", generoDomain.Nome);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public List<GeneroDomain> Listar()
         {
             List<GeneroDomain> generos = new List<GeneroDomain>();
