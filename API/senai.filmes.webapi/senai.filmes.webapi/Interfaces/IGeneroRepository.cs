@@ -15,6 +15,17 @@ namespace senai.filmes.webapi.Interfaces
         /// <returns>Retorna uma lista de generos</returns>
         List<GeneroDomain> Listar();
 
+        // Retorno NomeMetodo(Parâmetro)
+        /// <summary>
+        /// Cadastra novos generos 
+        /// </summary>
+        /// <param name="generoDomain"></param>
         void Cadastrar(GeneroDomain generoDomain);
+
+        void Atualizar(GeneroDomain generoDomain);
+
+        void Deletar(int id);
+
+        GeneroDomain GetById(int id);
     }
 }
